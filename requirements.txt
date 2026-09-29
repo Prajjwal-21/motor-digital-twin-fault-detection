@@ -1,3 +1,6 @@
+# CPU-only PyTorch build: much smaller, and no GPU is needed (also avoids
+# multi-GB CUDA downloads when deploying to Streamlit Community Cloud).
+--extra-index-url https://download.pytorch.org/whl/cpu
 numpy
 pandas
 torch
