@@ -1,5 +1,8 @@
 # Motor Digital Twin — AI Fault Detection
 
+**▶ Live demo:** https://motor-digital-twin-fault-detection-9hka6gsfntwxv2xzma5jan.streamlit.app
+(hosted on Streamlit Community Cloud; if it has been idle, click "Yes, get this app back up!" and wait ~30 s)
+
 A physics-based **digital twin of a DC motor in MATLAB** generates labeled sensor data, and two
 **PyTorch** sequence models (a **Transformer** and an **LSTM** baseline) learn to diagnose the motor's
 condition from 10 seconds of current, speed, torque, and temperature. A **Streamlit** dashboard shows
@@ -144,8 +147,8 @@ Accuracy and F1 are fully reproducible (fixed seeds); training time is wall-cloc
 
 | Model | Test accuracy | Macro F1 | Parameters | Training time (s) | Epochs (best) |
 |---|---|---|---|---|---|
-| Transformer | 0.993 | 0.993 | 67,459 | 8.2 | 14 (9) |
-| LSTM | 0.933 | 0.934 | 51,395 | 14.5 | 30 (26) |
+| Transformer | 0.993 | 0.993 | 67,459 | 8.5 | 14 (9) |
+| LSTM | 0.933 | 0.934 | 51,395 | 14.4 | 30 (26) |
 
 | Transformer | LSTM |
 |---|---|
@@ -187,7 +190,7 @@ pip install -r requirements.txt
 # 2) Train and compare both models (about 1 min on CPU)
 python train.py
 
-# 3) Dashboard (opens http://localhost:8501)
+# 3) Dashboard locally (http://localhost:8501) — or use the live demo link above
 streamlit run app.py
 ```
 
