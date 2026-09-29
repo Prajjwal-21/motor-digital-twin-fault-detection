@@ -296,11 +296,10 @@ speed drop in **the same way for every fault**:
 The faults only differ in how the extra torque demand arises, and in where the extra power ends up:
 
 ```math
-\Delta T_{\text{load}} = (s-1)\,T_{L,0}
-\quad\text{(power leaves through the shaft)},
-\qquad
-\Delta T_{\text{friction}} = (s-1)\,B_0\,\omega
-\quad\text{(power becomes heat inside the motor)}
+\begin{aligned}
+\Delta T_{\text{load}} &= (s-1)\,T_{L,0} && \text{power leaves through the shaft}\\
+\Delta T_{\text{friction}} &= (s-1)\,B_0\,\omega && \text{power becomes heat inside the motor}
+\end{aligned}
 ```
 
 Worked example with the nominal motor at severity $`s = 2`$. The values come from the formulas above
