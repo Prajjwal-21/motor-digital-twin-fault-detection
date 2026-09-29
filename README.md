@@ -431,25 +431,25 @@ PE_{k,\,2j+1} = \cos\!\left(\frac{k}{10000^{2j/d}}\right)
 ```math
 Q_h = H W_h^Q,\quad K_h = H W_h^K,\quad V_h = H W_h^V,
 \qquad
-\text{head}_h = \operatorname{softmax}\!\left(\frac{Q_h K_h^{\top}}{\sqrt{d_k}}\right) V_h
+\text{head}_h = \mathrm{softmax}\!\left(\frac{Q_h K_h^{\top}}{\sqrt{d_k}}\right) V_h
 ```
 
 ```math
-\operatorname{MHA}(H) = \big[\text{head}_1 \,\|\, \text{head}_2 \,\|\, \text{head}_3 \,\|\, \text{head}_4\big]\, W^O
+\mathrm{MHA}(H) = \big[\text{head}_1 \,\|\, \text{head}_2 \,\|\, \text{head}_3 \,\|\, \text{head}_4\big]\, W^O
 ```
 
 **Encoder layer** (PyTorch default post-norm, ReLU feed-forward 64 → 128 → 64), applied twice:
 
 ```math
-Z = \operatorname{LayerNorm}\big(H + \operatorname{Dropout}(\operatorname{MHA}(H))\big),
+Z = \mathrm{LayerNorm}\big(H + \mathrm{Dropout}(\mathrm{MHA}(H))\big),
 \qquad
-H' = \operatorname{LayerNorm}\big(Z + \operatorname{Dropout}(\operatorname{FFN}(Z))\big)
+H' = \mathrm{LayerNorm}\big(Z + \mathrm{Dropout}(\mathrm{FFN}(Z))\big)
 ```
 
 ```math
-\operatorname{FFN}(z) = W_2\,\operatorname{ReLU}(W_1 z + b_1) + b_2,
+\mathrm{FFN}(z) = W_2\,\mathrm{ReLU}(W_1 z + b_1) + b_2,
 \qquad
-\operatorname{LayerNorm}(z) = \gamma \odot \frac{z - \operatorname{mean}(z)}{\sqrt{\operatorname{var}(z) + \epsilon}} + \beta
+\mathrm{LayerNorm}(z) = \gamma \odot \frac{z - \mathrm{mean}(z)}{\sqrt{\mathrm{var}(z) + \epsilon}} + \beta
 ```
 
 **Global average pooling + classifier:**
