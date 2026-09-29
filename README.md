@@ -163,8 +163,9 @@ Accuracy and F1 are fully reproducible (fixed seeds); training time is wall-cloc
 **What the errors say**
 - The Transformer makes **one** mistake: a *mild* (1.38×) friction fault predicted as High Load.
   That is exactly the case where the two faults are physically closest.
-- The LSTM makes 9 mistakes; **7 are Increased Friction runs predicted as Healthy**, mostly with
-  early onsets (≤ 4.2 s). To spot the fault, a model has to compare signal levels before and after
+- The LSTM makes 9 mistakes; **6 are Increased Friction runs predicted as Healthy**, all with
+  onsets between 2.3 and 4.2 s (the other 3: two mild High Load runs predicted as Healthy, one Healthy
+  run predicted as Friction). To spot the fault, a model has to compare signal levels before and after
   the onset. Attention compares any two time steps directly, while the LSTM must carry the
   pre-fault level through its memory.
 - The LSTM was still improving when it hit the 30-epoch cap (best epoch 26), so with more epochs the
